@@ -42,9 +42,24 @@ A empresa FastTech precisa de uma consultoria que dedsenvolva um sistema de gest
 
 - Somente administradores poderão manipular os dados do setor.
 
-### 04 - Controle de acesso
+### 04 - Catálogo de Produtos
+
+##### Vendedor
+
+- Um vendedor pode consultar produtos.
+- Um vendedor pode adicionar produtos na sua venda.
+
+#### Gerente
+
+- Um administrador pode cadastrar produtos.
+- Um administrador pode editar produtos.
+- Um administrador pode desabilitar um produto.
+
+### 05 - Controle de acesso
 
 - Um usuário só poderá acessar a aplicação aw ele estiver devidamente cadastrado e autenticado.
 - O sistema deve ter 03 níveis de acesso, sendo eles: Administrador, Gerente e Vendedor.
 - Um usuário só poderá acessar recursos que o seu nível de acesso permita.
 - Um usuário não poderá alterar seu e-mail.
+
+As regras aqqui descritas podem ser alteradas de acordo com o contexto em que essa aplicação vai ser utilizada.
