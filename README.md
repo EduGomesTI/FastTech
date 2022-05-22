@@ -66,4 +66,4 @@ A empresa FastTech precisa de uma consultoria que dedsenvolva um sistema de gest
 
 - Esse projeto será criado utilizando [ASPNET 6](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-6.0)
 
-As regras aqqui descritas podem ser alteradas de acordo com o contexto em que essa aplicação vai ser utilizada.
+As regras aqui descritas podem ser alteradas de acordo com o contexto em que essa aplicação vai ser utilizada.
