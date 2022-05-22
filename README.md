@@ -62,4 +62,8 @@ A empresa FastTech precisa de uma consultoria que dedsenvolva um sistema de gest
 - Um usuário só poderá acessar recursos que o seu nível de acesso permita.
 - Um usuário não poderá alterar seu e-mail.
 
+### Ferramentas 
+
+- Esse projeto será criado utilizando [ASPNET 6](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-6.0)
+
 As regras aqqui descritas podem ser alteradas de acordo com o contexto em que essa aplicação vai ser utilizada.
