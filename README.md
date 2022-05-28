@@ -65,5 +65,11 @@ A empresa FastTech precisa de uma consultoria que dedsenvolva um sistema de gest
 ### Ferramentas 
 
 - Esse projeto será criado utilizando [ASPNET 6](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-6.0)
+- ASP.NET 6 WEB API
+- Fluent Validation
+- Documentação com Swagger
+- Autenticação
+- Autorização
+- JWT
 
 As regras aqui descritas podem ser alteradas de acordo com o contexto em que essa aplicação vai ser utilizada.
