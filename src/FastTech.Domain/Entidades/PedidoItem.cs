@@ -7,4 +7,9 @@ internal class PedidoItem : Entity
     public decimal ValorUnitario { get; private set; }
     public string? NomeProduto { get; private set; }
     public Pedido? Pedido { get; set; }
+
+    public decimal CalcularValor()
+    {
+        return Quantidade * ValorUnitario;
+    }
 }
