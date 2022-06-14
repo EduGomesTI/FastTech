@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D25CE711
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastTech.Domain", "src\FastTech.Domain\FastTech.Domain.csproj", "{75759CD4-3AD0-4773-B5E2-9D6A688ED706}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastTec.Application", "src\FastTec.Application\FastTec.Application.csproj", "{3BBDF623-124B-44EE-A8D6-FC1CDAAF444B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastTech.Application", "src\FastTech.Application\FastTech.Application.csproj", "{3BBDF623-124B-44EE-A8D6-FC1CDAAF444B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastTech.Infrastructure", "src\FastTech.Infrastructure\FastTech.Infrastructure.csproj", "{0766B2C2-F8B4-4D87-A248-AF48DB64D392}"
 EndProject
