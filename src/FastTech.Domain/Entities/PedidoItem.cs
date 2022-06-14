@@ -1,4 +1,6 @@
-﻿namespace FastTech.Domain.Entidades;
+﻿using FastTech.Domain.Common;
+
+namespace FastTech.Domain.Entities;
 
 internal class PedidoItem : Entity
 {

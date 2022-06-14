@@ -1,4 +1,4 @@
-﻿namespace FastTech.Domain.Entidades;
+﻿namespace FastTech.Domain.Common;
 
 internal abstract class Entity
 {

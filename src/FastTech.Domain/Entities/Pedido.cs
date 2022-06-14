@@ -1,6 +1,7 @@
-﻿using FastTech.Domain.Enums;
+﻿using FastTech.Domain.Common;
+using FastTech.Domain.Enums;
 
-namespace FastTech.Domain.Entidades;
+namespace FastTech.Domain.Entities;
 
 internal class Pedido : Entity
 {
@@ -48,7 +49,7 @@ internal class Pedido : Entity
     {
         if (ExistePedidoItem(pedidoItem) is var itemEncontrado && itemEncontrado is null)
         {
-            throw new ArgumentNullException("Item de pedido não encontrado.");
+            throw new DomainException("Item de pedido não encontrado.");
         }
         _pedidoItens?.Remove(pedidoItem);
 

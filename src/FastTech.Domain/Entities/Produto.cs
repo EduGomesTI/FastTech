@@ -1,6 +1,7 @@
-﻿using FastTech.Domain.Enums;
+﻿using FastTech.Domain.Common;
+using FastTech.Domain.Enums;
 
-namespace FastTech.Domain.Entidades;
+namespace FastTech.Domain.Entities;
 
 internal class Produto : Entity
 {
@@ -33,7 +34,7 @@ internal class Produto : Entity
     {
         if (string.IsNullOrWhiteSpace(novoNome))
         {
-            throw new Exception("Nome inválida.");
+            throw new DomainException("Nome inválida.");
         }
 
         Nome = novoNome;
@@ -49,7 +50,7 @@ internal class Produto : Entity
     {
         if (string.IsNullOrWhiteSpace(novaDescricao))
         {
-            throw new Exception("Descrição inválida.");
+            throw new DomainException("Descrição inválida.");
         }
 
         Descricao = novaDescricao;
@@ -59,12 +60,12 @@ internal class Produto : Entity
     {
         if (quantidade < 0)
         {
-            throw new Exception("Quantidade inválida.");
+            throw new DomainException("Quantidade inválida.");
         }
 
         if (!PossuiEstoque(quantidade))
         {
-            throw new Exception("Quantidade em estoque insuficiente.");
+            throw new DomainException("Quantidade em estoque insuficiente.");
         }
 
         QuantidadeEstoque -= quantidade;
@@ -77,7 +78,7 @@ internal class Produto : Entity
     {
         if (quantidade < 0)
         {
-            throw new Exception("Quantidade não pode ser negativa.");
+            throw new DomainException("Quantidade não pode ser negativa.");
         }
         QuantidadeEstoque += quantidade;
     }
