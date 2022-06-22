@@ -11,6 +11,21 @@ internal class PedidoItem : Entity
     public string? NomeProduto { get; private set; }
     public Pedido? Pedido { get; set; }
 
+    public PedidoItem(Guid produtoId, string nomeProduto, int quantidade, decimal valorUnitario)
+    {
+        ProdutoId = produtoId;
+        NomeProduto = nomeProduto;
+        Quantidade = quantidade;
+        ValorUnitario = valorUnitario;
+
+        Validar();
+    }
+
+    public void VincularPedido(Guid pedidoId)
+    {
+        PedidoId = pedidoId;
+    }
+
     public decimal CalcularValor()
     {
         return Quantidade * ValorUnitario;
@@ -19,5 +34,33 @@ internal class PedidoItem : Entity
     public void AdicionarQuantidade(int quantidade)
     {
         Quantidade = +quantidade;
+    }
+
+    public void AtualizarQuantidade(int quantidade)
+    {
+        Quantidade = quantidade;
+    }
+
+    protected override void Validar()
+    {
+        if (ProdutoId == Guid.Empty)
+        {
+            throw new DomainException("Id do Produto inválido.");
+        }
+
+        if (Quantidade < 0)
+        {
+            throw new DomainException("Quantidade não pode ser menor que zero.");
+        }
+
+        if (ValorUnitario <= 0)
+        {
+            throw new DomainException("O valor unitário não pode ser menor ou igual a zero.");
+        }
+
+        if (string.IsNullOrWhiteSpace(NomeProduto))
+        {
+            throw new DomainException("Nome do Produto inválido.");
+        }
     }
 }

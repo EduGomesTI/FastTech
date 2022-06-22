@@ -28,16 +28,8 @@ internal class Produto : Entity
         Cadastro = DateTime.UtcNow;
         Tipo = tipo;
         QuantidadeEstoque = quantidadeEstoque;
-    }
 
-    public void AlterarNome(string novoNome)
-    {
-        if (string.IsNullOrWhiteSpace(novoNome))
-        {
-            throw new DomainException("Nome inválida.");
-        }
-
-        Nome = novoNome;
+        Validar();
     }
 
     public void Ativar() => Ativo = true;
@@ -83,4 +75,32 @@ internal class Produto : Entity
         QuantidadeEstoque += quantidade;
     }
 
+    protected override void Validar()
+    {
+        if (string.IsNullOrWhiteSpace(Nome))
+        {
+            throw new DomainException("Nome não pode estar vazio.");
+        }
+
+        if (string.IsNullOrWhiteSpace(Descricao))
+        {
+            throw new DomainException("Descrição não pode estar vazio.");
+        }
+
+        if (Valor <= 0)
+        {
+            throw new DomainException("Valor não pode ser menor ou igual a zero.");
+        }
+
+        if (Cadastro < DateTime.UtcNow.Date)
+        {
+            throw new DomainException("A data de cadastro não pode ser menor que a data de hoje.");
+        }
+
+        if (QuantidadeEstoque < 0)
+        {
+            throw new DomainException("A quantidade não pode ser menor que zero.");
+        }
+
+    }
 }

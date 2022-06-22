@@ -8,7 +8,7 @@ internal class Pedido : Entity
     #region Propriedades
     private readonly List<PedidoItem>? _pedidoItens;
 
-    public DateTime Date { get; private set; }
+    public DateTime Cadastro { get; private set; }
     public decimal ValorTotal { get; private set; }
     public StatusPedido Status { get; private set; }
     public IReadOnlyCollection<PedidoItem>? PedidoItens => (IReadOnlyCollection<PedidoItem>?)_pedidoItens;
@@ -20,7 +20,7 @@ internal class Pedido : Entity
     public Pedido()
     {
         _pedidoItens = new List<PedidoItem>();
-        Date = DateTime.UtcNow;
+        Cadastro = DateTime.UtcNow;
         Status = StatusPedido.Novo;
     }
 
@@ -29,6 +29,8 @@ internal class Pedido : Entity
     public void AdicionarItemNoPedido(PedidoItem pedidoItem)
     {
         var item = pedidoItem;
+
+        item.VincularPedido(Id);
 
         if (ExistePedidoItem(pedidoItem) is var itemEncontrado && itemEncontrado is not null) //Matching Pattern
         {
@@ -51,9 +53,31 @@ internal class Pedido : Entity
         {
             throw new DomainException("Item de pedido não encontrado.");
         }
-        _pedidoItens?.Remove(pedidoItem);
+        _pedidoItens?.Remove(itemEncontrado);
 
         CalcularValorTotal();
+    }
+
+    public void AtualizarQuantidadeItem(PedidoItem pedidoItem, int novaQuantidade)
+    {
+        if (ExistePedidoItem(pedidoItem) is var itemEncontrado && itemEncontrado is null)
+        {
+            throw new DomainException("Item de pedido não encontrado.");
+        }
+
+        itemEncontrado.AtualizarQuantidade(novaQuantidade);
+
+        CalcularValorTotal();
+    }
+
+    public void AguardarPagamento()
+    {
+        Status = StatusPedido.AguardandoPagamento;
+    }
+
+    public void ConcluirPedido()
+    {
+        Status = StatusPedido.Concluido;
     }
 
     public void CalcularValorTotal()
@@ -64,4 +88,11 @@ internal class Pedido : Entity
     private PedidoItem? ExistePedidoItem(PedidoItem pedidoItem) =>
         _pedidoItens?.FirstOrDefault(p => p.ProdutoId == pedidoItem.ProdutoId);
 
+    protected override void Validar()
+    {
+        if (Cadastro < DateTime.UtcNow)
+        {
+            throw new DomainException("Data de cadastro inválida");
+        }
+    }
 }
