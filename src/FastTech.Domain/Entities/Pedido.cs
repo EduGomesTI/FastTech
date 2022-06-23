@@ -3,7 +3,7 @@ using FastTech.Domain.Enums;
 
 namespace FastTech.Domain.Entities;
 
-internal class Pedido : Entity
+public class Pedido : Entity
 {
     #region Propriedades
     private readonly List<PedidoItem>? _pedidoItens;
