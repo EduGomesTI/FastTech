@@ -28,9 +28,9 @@ public class SqlServerDbContext : DbContext
     protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
     {
         configurationBuilder
-            .Properties<string>()
-            .AreUnicode(false)
-            .HaveMaxLength(100);
+            .DefaultTypeMapping<string>()
+            .IsUnicode(false)
+            .HasMaxLength(200);
 
         base.ConfigureConventions(configurationBuilder);
     }
